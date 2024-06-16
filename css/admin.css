@@ -13,15 +13,42 @@
     padding: 1%;
     width: 80%;
     margin: 0 auto;
+    border: 1px;
 }
 
 .text-center{
     text-align: center;
 }
 
+/* css for menu */
+.menu{
+    border-bottom: 1px solid grey;
+}
+.menu ul{
+    list-style-type: none;
+}
+.menu ul li{
+    display: inline;
+    padding: 1%;
+}
+.menu ul li a{
+    text-decoration: none;
+    font-weight: bold;
+    color: #fc5c65;
+}
+.menu ul li a:hover{
+    color: #eb3b5a;
+}
+
+/* css for main content */
+.main-content{
+    margin: 1% 0;
+
+}
+
 /* css for footer */
 .footer{
-    background-color: #e74c3c;
+    background-color: #fc5c65;
     color: white;
     border: white;
 }

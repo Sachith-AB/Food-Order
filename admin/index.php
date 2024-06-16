@@ -8,15 +8,20 @@
 </head>
 <body>
     <!-- Menu section start -->
-     <div class="menu">
+     <div class="menu text-center">
         <div class="wrapper">
-            Menu Goes Here
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="admin-manager">Admin</a></li>
+                <li><a href="/category">Category</a></li>
+                <li><a href="/order">Order</a></li>
+            </ul>
         </div>
      </div>
      <!-- Menu section end -->
 
      <!-- Main section start -->
-      <div>
+      <div class="main-content">
         <div class="wrapper">
             Main Content Goes Here
         </div>
