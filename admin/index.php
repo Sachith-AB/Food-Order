@@ -14,6 +14,7 @@
                 <li><a href="/">Home</a></li>
                 <li><a href="admin-manager">Admin</a></li>
                 <li><a href="/category">Category</a></li>
+                <li><a href="/food">Food</a></li>
                 <li><a href="/order">Order</a></li>
             </ul>
         </div>
@@ -23,7 +24,24 @@
      <!-- Main section start -->
       <div class="main-content">
         <div class="wrapper">
-            Main Content Goes Here
+            <h1>Dashboard</h1>
+            <div class="col-4 text-center">
+                <h1>5</h1><br>
+                        categories
+            </div>
+            <div class="col-4 text-center">
+                <h1>5</h1><br>
+                        categories
+            </div>
+            <div class="col-4 text-center">
+                <h1>5</h1><br>
+                        categories
+            </div>
+            <div class="col-4 text-center">
+                <h1>5</h1><br>
+                        categories
+            </div>
+            <div class="clearfix"></div>
         </div>
       </div>
      <!-- Main section end -->
