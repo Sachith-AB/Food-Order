@@ -2,9 +2,9 @@
 
 <div class="main-content">
     <div class="wrapper">
-        <h2>Manage Category</h2>
+        <h2>Manage Category</h2><br>
 
-        <a href="#" class=""> Add Admin</a><br><br><br><br>
+        <a href="#" class="btn-primary"> Add category</a><br><br><br><br>
 
             <table class="tbl-full">
                 <tr>
