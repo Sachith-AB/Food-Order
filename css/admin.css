@@ -25,6 +25,46 @@
     clear: both;
 }
 
+.tbl-full{
+    width: 100%;
+}
+
+table tr th{
+    border-bottom: 1px solid black;
+    padding: 1%;
+    text-align: left;
+}
+table tr td{
+    padding: 1%;
+}
+.edit-btn{
+    color: #2ecc71;
+}
+.edit-btn:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.delete-btn{
+    color: #e74c3c;
+}
+.delete-btn:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+.btn-primary{
+    background-color: #3498db;
+    padding: 1%;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 10%;
+}
+.btn-primary:hover{
+    opacity: 95%;
+}
+.col{
+    flex-direction: row;
+}
 /* css for menu */
 .menu{
     border-bottom: 1px solid grey;
