@@ -7,6 +7,13 @@
         <div class="wrapper">
             <h2>Manage Admin</h2><br>
 
+            <?php
+                if(isset($_SESSION['add'])){
+                    echo $_SESSION['add'];
+                    unset($_SESSION['add']);
+                }
+            ?><br><br>
+
             <a href="add-admin.php" class="btn-primary"> Add Admin</a><br><br><br><br>
 
             <table class="tbl-full">

@@ -1,11 +1,19 @@
-<?php 
-    include ("partials/menu.php");
-?>
+<?php include ("partials/menu.php");?>
+
+
+
     <div class="main-content">
         <div class="wrapper">
             <h2>
                 Add Admin
             </h2>
+
+            <?php
+                if(isset($_SESSION['add'])){
+                    echo $_SESSION['add'];
+                    unset($_SESSION['add']);
+                }
+            ?><br><br>
 
             <form action="" method="post">
                 <table class="tbl-30">
@@ -39,6 +47,30 @@ include ("partials/footer.php");
     if(isset($_POST["submit"])){
         //button clicked
         //get data from form
+
+        $full_name = $_POST['full-name'];
+        $username = $_POST['username'];
+        $password = md5($_POST['password']); //password encryption with MD5
+
+        //sql query to save data in to database
+        $sql = "INSERT INTO tbl_admin SET
+        full_name = '$full_name',
+        username = '$username',
+        password = '$password'";
+
+        // execute query and save data  into database
+        $res = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+        //check wether the (query executed) or not
+
+        if($res== true){
+            //create session variables
+            $_SESSION['add'] = 'Admin added successfully';
+            header('location:'.SITEURL.'admin/manage-admin.php');
+        }else{
+            $_SESSION['add'] = 'Admin added failed';
+            header('location:'.SITEURL.'admin/add-admin.php');
+        }
         
     }
 ?>
