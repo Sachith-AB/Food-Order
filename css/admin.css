@@ -51,6 +51,9 @@ table tr td{
     cursor: pointer;
     text-decoration: underline;
 }
+.change-password-btn{
+    color: blue;
+}
 .btn-primary{
     background-color: #3498db;
     padding: 1%;

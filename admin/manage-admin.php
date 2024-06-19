@@ -22,6 +22,22 @@
                     echo $_SESSION['update'];
                     unset($_SESSION['update']);
                 }
+
+                if(isset($_SESSION['user-not-found'])){
+                    echo $_SESSION['user-not-found'];
+                    unset($_SESSION['user-not-found']);
+                }
+                
+                if(isset($_SESSION['password-not-match'])){
+                    echo $_SESSION['password-not-match'];
+                    unset($_SESSION['password-not-match']);
+                }
+
+                if(isset($_SESSION['change-password'])){
+                    echo $_SESSION['change-password'];
+                    unset($_SESSION['change-password']);
+                }
+
             ?><br><br>
 
             <a href="add-admin.php" class="btn-primary"> Add Admin</a><br><br><br><br>
@@ -55,6 +71,7 @@
                                     <td><?php echo $username ?></td>
                                     <td>
                                         <div class="col">
+                                            <a href="<?php echo SITEURL; ?>admin/change-password-admin.php?id=<?php echo $id; ?>" class="change-password-btn">Change Password</a>
                                             <a href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>" class="edit-btn">Edit</a>
                                             <a href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>" class="delete-btn">Delete</a>
                                         </div>
