@@ -15,12 +15,12 @@
 
     if($res == true){
         //delete successfully
-       $_SESSION['delete'] = "Admin deleted successfully";
+       $_SESSION['delete'] = "<div class='success'>Admin deleted successfully</div>";
        header('location:'.SITEURL."admin/manage-admin.php");
     }else{
         //fales to delete
         echo "admin delete failed";
-        $_SESSION['delete'] = "Failed to delete,Try again later";
+        $_SESSION['delete'] = "<div class='error'>Failed to delete,Try again later</div>";
         header('location:'.SITEURL."admin/manage-admin.php");
     }
 ?>

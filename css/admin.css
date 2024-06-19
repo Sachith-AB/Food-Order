@@ -69,6 +69,12 @@ table tr td{
     width: 30%;
     
 }
+.success{
+    color:#2ecc71;
+}
+.error{
+    color: #e74c3c;
+}
 /* css for menu */
 .menu{
     border-bottom: 1px solid grey;

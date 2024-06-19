@@ -65,10 +65,10 @@ include ("partials/footer.php");
 
         if($res== true){
             //create session variables
-            $_SESSION['add'] = 'Admin added successfully';
+            $_SESSION['add'] = '<div class="success">Admin added successfully</div>';
             header('location:'.SITEURL.'admin/manage-admin.php');
         }else{
-            $_SESSION['add'] = 'Admin added failed';
+            $_SESSION['add'] = '<div class="error">Admin added failed</div>';
             header('location:'.SITEURL.'admin/add-admin.php');
         }
         
