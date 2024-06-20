@@ -18,6 +18,11 @@
                 echo $_SESSION['login'];
                 unset($_SESSION['login']);
             }
+
+            if(isset($_SESSION['no-login-message'])) {
+                echo $_SESSION['no-login-message'];
+                unset($_SESSION['no-login-message']);
+            }
         ?><br>
 
         <form action="" method="post" class="">
@@ -48,6 +53,7 @@
         $count = mysqli_num_rows($res);
         if($count == 1){
             $_SESSION['login']="<div class='success'>Login Successfull</div>";
+            $_SESSION["user"]= $username;  //to check whether is logged or not and logout will unset
             header("location:".SITEURL."admin/");
         }else{
             $_SESSION['login']="<div class='error'>Login Failed</div>";
