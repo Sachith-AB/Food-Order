@@ -71,11 +71,11 @@
                     //check query correct or not
                     if($res2 == true){
                         //display success message
-                        $_SESSION['change-passowrd'] = "<div class='success'>Password Updated</div>";
+                        $_SESSION['change-passowrd'] = "<div class='success'>Password Updated </div>";
                         header("location:".SITEURL."admin/manage-admin.php");
                     }else{
                         //display error message
-                        $_SESSION['change-password'] = "<div class='error'>Update Password Failed</div>";
+                        $_SESSION['change-password'] = "<div class='error'>Update Password Failed </div>";
                         header("location:".SITEURL."admin/manage-admin.php");
                     }
                 }else{
