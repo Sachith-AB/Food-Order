@@ -9,10 +9,15 @@
                 echo $_SESSION['add'];
                 unset($_SESSION['add']);
             }
+            if(isset($_SESSION['upload'])){
+                echo $_SESSION['upload'];
+                unset($_SESSION['upload']);
+            }
         ?>
 
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             <input type="text" name="title" placeholder="Title"><br><br>
+            <input type="file" name="image" id=""><br><br>
             <p>Feature:</p>
             <input type="radio" name="feature" id="" value="Yes"> Yes
             <input type="radio" name="feature" id="" value="No"> No
@@ -40,8 +45,30 @@
                     $active= 'No';
                 }
                 
+                //print_r($_FILES['image']);
+                //die('');
+
+                if(isset($_FILES['image']['name'])){
+                    $image=$_FILES['image']['name'];
+                    // auto rename image
+                    $ext = end(explode('.',$image));
+                    $image = "food_category_".rand(000,999).".".$ext;
+                    
+                    $source = $_FILES['image']['tmp_name'];
+                    $destination="../images/category/".$image;
+                    $upload = move_uploaded_file($source,$destination);
+                    if($upload == false){
+                        $_SESSION['upload'] = "<div class='error'>failed to upload image</div>";
+                        header("location:".SITEURL."admin/add-category.php");
+                        die();
+                    }
+                }else{
+                    $image="";
+                }
+                
                 $sql = "INSERT INTO tbl_category SET 
                 title='$title',
+                image_name='$image',
                 featured='$feature',
                 active='$active'
                 ";
