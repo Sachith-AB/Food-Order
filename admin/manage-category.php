@@ -4,7 +4,16 @@
     <div class="wrapper">
         <h2>Manage Category</h2><br>
 
-        <a href="#" class="btn-primary"> Add category</a><br><br><br><br>
+       
+
+        <a href="add-category.php" class="btn-primary"> Add category</a><br><br>
+
+        <?php
+            if(isset($_SESSION['add'])){
+                echo $_SESSION['add'];
+                unset($_SESSION['add']);
+            }
+        ?><br>
 
             <table class="tbl-full">
                 <tr>
