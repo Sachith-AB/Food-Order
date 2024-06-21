@@ -42,7 +42,17 @@
                                 <tr>
                                     <td><?php echo $sn++ ?></td>
                                     <td><?php echo $title ?></td>
-                                    <td><?php echo $image ?></td>
+                                    <td>
+                                        <?php 
+                                            if($image != ''){
+                                                ?>
+                                                <img src="<?php echo SITEURL;?>images/category/<?php echo $image; ?>" alt="category-image" class="image-style">
+                                                <?php
+                                            }else{
+                                                echo'<div class="error">Image not added</div>';
+                                            }
+                                        ?>
+                                    </td>
                                     <td><?php echo $feature ?></td>
                                     <td><?php echo $active ?></td>
                                     <td>
