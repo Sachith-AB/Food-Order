@@ -23,6 +23,11 @@
                 echo $_SESSION['delete'];
                 unset($_SESSION['delete']);
             }
+
+            if(isset($_SESSION['category-not-found'])){
+                echo $_SESSION['category-not-found'];
+                unset($_SESSION['category-not-found']);
+            }
         ?><br>
 
             <table class="tbl-full">
@@ -67,7 +72,7 @@
                                     <td><?php echo $active ?></td>
                                     <td>
                                         <div class="col">
-                                            <a href="#" class="edit-btn">Edit</a>
+                                            <a href="<?php echo SITEURL; ?>admin/update-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image ?>" class="edit-btn">Edit</a>
                                             <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id;?>&image_name=<?php echo $image?>" class="delete-btn">Delete</a>
                                         </div>
                                     </td>

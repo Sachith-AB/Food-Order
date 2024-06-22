@@ -4,8 +4,7 @@
 
     //echo "Delete Page";
     //Check whether the id and image_name value is set or not
-    if(isset($_GET['id']) AND isset($_GET['image_name']))
-    {
+    if(isset($_GET['id']) AND isset($_GET['image_name'])){
         //Get the Value and Delete
         //echo "Get Value and Delete";
         $id = $_GET['id'];

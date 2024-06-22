@@ -50,18 +50,21 @@
 
                 if(isset($_FILES['image']['name'])){
                     $image=$_FILES['image']['name'];
-                    // auto rename image
-                    $ext = end(explode('.',$image));
-                    $image = "food_category_".rand(000,999).".".$ext;
+                    if($image !=''){
+                         // auto rename image
+                        $ext = end(explode('.',$image));
+                        $image = "food_category_".rand(000,999).".".$ext;
                     
-                    $source = $_FILES['image']['tmp_name'];
-                    $destination="../images/category/".$image;
-                    $upload = move_uploaded_file($source,$destination);
-                    if($upload == false){
-                        $_SESSION['upload'] = "<div class='error'>failed to upload image</div>";
-                        header("location:".SITEURL."admin/add-category.php");
-                        die();
+                        $source = $_FILES['image']['tmp_name'];
+                        $destination="../images/category/".$image;
+                        $upload = move_uploaded_file($source,$destination);
+                        if($upload == false){
+                            $_SESSION['upload'] = "<div class='error'>failed to upload image</div>";
+                            header("location:".SITEURL."admin/add-category.php");
+                            die();
+                        }
                     }
+                   
                 }else{
                     $image="";
                 }
