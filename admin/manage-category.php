@@ -28,6 +28,11 @@
                 echo $_SESSION['category-not-found'];
                 unset($_SESSION['category-not-found']);
             }
+
+            if(isset($_SESSION['update'])){
+                echo $_SESSION['update'];
+                unset($_SESSION['update']);
+            }
         ?><br>
 
             <table class="tbl-full">

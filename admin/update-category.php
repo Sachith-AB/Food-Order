@@ -47,15 +47,47 @@
             <p>New Image:</p><br>
             <input type="file" name="image" id=""><br><br>
             <p>Feature:</p>
-            <input <?php if($feature == 'YES') {echo "checked";} ?> type="radio" name="feature" id="" value="<?php echo $feature ?>"> Yes
+            <input <?php if($feature == 'Yes') {echo "checked";} ?> type="radio" name="feature" id="" value="<?php echo $feature ?>"> Yes
             <input <?php if($feature == 'No') {echo "checked";} ?>  type="radio" name="feature" id="" value="<?php echo $feature ?>"> No
             <br><br>
             <p>Active:</p>
-            <input <?php if($feature == 'YES') {echo "checked";} ?> type="radio" name="active" value="Yes"> Yes
-            <input <?php if($feature == 'No') {echo "checked";} ?> type="radio" name="active" value="No"> No
+            <input <?php if($active == 'Yes') {echo "checked";} ?> type="radio" name="active" value="Yes"> Yes
+            <input <?php if($active == 'No') {echo "checked";} ?> type="radio" name="active" value="No"> No
             <br><br>
+            <input type="hidden" name="current-image" value="<?php echo $current_image; ?>">
+            <input type="hidden" name="id" value="<?php echo $id ?>">
             <input type="submit" name="submit" value="Update Category" class="edit-btn">
         </form>
+        <?php
+            if(isset($_POST["submit"])){
+                //echo"clicked";
+                $id = $_POST['id'];
+                $title = $_POST["title"];
+                $current_image= $_POST['current-image'];
+                $feature = $_POST["feature"];
+                $active = $_POST["active"];
+
+                //updating new image
+                $sql2 = "UPDATE tbl_category SET 
+                title='$title',
+                featured='$feature',
+                active='$active'
+                WHERE id='$id'";
+
+                $res2=mysqli_query($conn,$sql2);
+
+                if($res==true){
+                    //redirect with sesstion
+                    $_SESSION['update']="<div class='success'>Updated successfully</div>";
+                    header("location:".SITEURL."admin/manage-category.php");
+                }else{
+                    $_SESSION['update']="<div class='error'>Updated failed</div>";
+                    header("location:".SITEURL."admin/manage-category.php");
+                }
+                
+            }
+
+        ?>
     </div>
 </div>
 
