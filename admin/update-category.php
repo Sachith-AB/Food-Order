@@ -47,8 +47,8 @@
             <p>New Image:</p><br>
             <input type="file" name="image" id=""><br><br>
             <p>Feature:</p>
-            <input <?php if($feature == 'Yes') {echo "checked";} ?> type="radio" name="feature" id="" value="<?php echo $feature ?>"> Yes
-            <input <?php if($feature == 'No') {echo "checked";} ?>  type="radio" name="feature" id="" value="<?php echo $feature ?>"> No
+            <input <?php if($feature == 'Yes') {echo "checked";} ?> type="radio" name="feature" id="" value="Yes"> Yes
+            <input <?php if($feature == 'No') {echo "checked";} ?>  type="radio" name="feature" id="" value="No"> No
             <br><br>
             <p>Active:</p>
             <input <?php if($active == 'Yes') {echo "checked";} ?> type="radio" name="active" value="Yes"> Yes
