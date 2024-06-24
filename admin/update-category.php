@@ -67,9 +67,45 @@
                 $feature = $_POST["feature"];
                 $active = $_POST["active"];
 
+                if(isset($_FILES["image"]["name"])){
+                    $image_name = $_FILES["image"]["name"];
+                    if($image_name != ""){
+                        $ext = end(explode('.',$image_name));
+                        $image_name = "food_category_".rand(000,999).".".$ext;
+                    
+                        $source = $_FILES['image']['tmp_name'];
+                        $destination="../images/category/".$image_name;
+                        $upload = move_uploaded_file($source,$destination);
+                        if($upload == false){
+                            $_SESSION['upload'] = "<div class='error'>Failed to upload image</div>";
+                            header("location:".SITEURL."admin/manage-category.php");
+                            die();
+                        }
+                        if($current_image!=""){
+                            $remove_path = "../images/category/".$current_image;
+
+                            $remove = unlink($remove_path);
+
+                            //CHeck whether the image is removed or not
+                            //If failed to remove then display message and stop the processs
+                            if($remove==false){
+                                //Failed to remove image
+                                $_SESSION['failed-remove'] = "<div class='error'>Failed to remove current Image.</div>";
+                                header('location:'.SITEURL.'admin/manage-category.php');
+                                die();//Stop the Process
+                            }
+                        }
+                    }else{
+                        $image_name = $current_image;
+                    }
+                }else{
+                    $image_name = $current_image;
+                }
+
                 //updating new image
                 $sql2 = "UPDATE tbl_category SET 
                 title='$title',
+                image_name='$image_name',
                 featured='$feature',
                 active='$active'
                 WHERE id='$id'";
