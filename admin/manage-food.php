@@ -4,7 +4,7 @@
     <div class="wrapper">
         <h2>Manage Food</h2><br>
 
-        <a href="#" class="btn-primary"> Add Food</a><br><br><br><br>
+        <a href="<?php echo SITEURL; ?>admin/add-food.php" class="btn-primary"> Add Food</a><br><br><br><br>
 
             <table class="tbl-full">
                 <tr>
