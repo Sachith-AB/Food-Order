@@ -1,7 +1,5 @@
 <?php include ("partials/menu.php");?>
 
-
-
     <div class="main-content">
         <div class="wrapper">
             <h2>
@@ -36,9 +34,7 @@
             </form>
         </div>
     </div>
-<?php 
-include ("partials/footer.php");
-?>
+<?php include ("partials/footer.php");?>
 
 <?php
     //process the value form and save it in database
@@ -52,24 +48,28 @@ include ("partials/footer.php");
         $username = $_POST['username'];
         $password = md5($_POST['password']); //password encryption with MD5
 
-        //sql query to save data in to database
-        $sql = "INSERT INTO tbl_admin SET
-        full_name = '$full_name',
-        username = '$username',
-        password = '$password'";
-
-        // execute query and save data  into database
-        $res = mysqli_query($conn,$sql) or die(mysqli_error($conn));
-
-        //check wether the (query executed) or not
-
-        if($res== true){
-            //create session variables
-            $_SESSION['add'] = '<div class="success">Admin added successfully</div>';
-            header('location:'.SITEURL.'admin/manage-admin.php');
+        if(!$full_name || !$username || !$password){
+            echo "All field are required";
         }else{
-            $_SESSION['add'] = '<div class="error">Admin added failed</div>';
-            header('location:'.SITEURL.'admin/add-admin.php');
+             //sql query to save data in to database
+            $sql = "INSERT INTO tbl_admin SET
+            full_name = '$full_name',
+            username = '$username',
+            password = '$password'";
+
+            // execute query and save data  into database
+            $res = mysqli_query($conn,$sql) or die(mysqli_error($conn));
+
+            //check wether the (query executed) or not
+
+            if($res == true){
+                //create session variables
+                $_SESSION['add'] = '<div class="success">Admin added successfully</div>';
+                header('location:'.SITEURL.'admin/manage-admin.php');
+            }else{
+                $_SESSION['add'] = '<div class="error">Admin added failed</div>';
+                header('location:'.SITEURL.'admin/add-admin.php');
+            }
         }
         
     }
